@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 950" role="img" aria-labelledby="title desc">
+<title id="title">Course-materials RAG architecture</title>
+<desc id="desc">Source-derived local ingestion and question flow, with external Anthropic boundary. Full accessible text is in ARCHITECTURE.md. Runtime and native editor round-trip not run.</desc>
+<rect width="1240" height="950" fill="white"/>
+<defs><marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#182c40"/></marker></defs>
+<path d="M922 125 V840" stroke="#947c51" stroke-dasharray="8 8" fill="none"/>
+<text x="30" y="50" font-size="30" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="30" dy="0">Course-materials RAG | source architecture</tspan>
+</text>
+<text x="30" y="84" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="30" dy="0">Source: afe4036d6985 | reviewed 2026-11-12 | runtime NOT RUN</tspan>
+</text>
+<text x="30" y="129" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="30" dy="0">LOCAL DEVELOPMENT — browser, Python process and persistent storage</tspan>
+</text>
+<text x="940" y="129" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="940" dy="0">EXTERNAL PROVIDER</tspan>
+</text>
+<rect x="30" y="170" width="250" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="44" y="202" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="44" dy="0">Browser</tspan>
+<tspan x="44" dy="23.400000000000002">Vanilla HTML/CSS/JS</tspan>
+<tspan x="44" dy="23.400000000000002">Query + course stats</tspan>
+</text>
+<rect x="345" y="170" width="245" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="359" y="202" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="359" dy="0">FastAPI / Uvicorn</tspan>
+<tspan x="359" dy="23.400000000000002">/api/query · /api/courses</tspan>
+<tspan x="359" dy="23.400000000000002">Static frontend</tspan>
+</text>
+<rect x="345" y="350" width="245" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="359" y="382" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="359" dy="0">RAGSystem</tspan>
+<tspan x="359" dy="23.400000000000002">Orchestrates query</tspan>
+<tspan x="359" dy="23.400000000000002">and source labels</tspan>
+</text>
+<rect x="30" y="350" width="250" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="44" y="382" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="44" dy="0">SessionManager</tspan>
+<tspan x="44" dy="23.400000000000002">Bounded RAM history</tspan>
+<tspan x="44" dy="23.400000000000002">Not persistent accounts</tspan>
+</text>
+<rect x="665" y="350" width="230" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="679" y="382" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="679" dy="0">AIGenerator</tspan>
+<tspan x="679" dy="23.400000000000002">Anthropic SDK</tspan>
+<tspan x="679" dy="23.400000000000002">Tool-use round trip</tspan>
+</text>
+<rect x="940" y="350" width="270" height="105" fill="#fff4dd" stroke="#182c40" stroke-width="2"/>
+<text x="954" y="382" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="954" dy="0">Anthropic Claude</tspan>
+<tspan x="954" dy="23.400000000000002">Question + history</tspan>
+<tspan x="954" dy="23.400000000000002">Retrieved tool results</tspan>
+</text>
+<rect x="665" y="535" width="230" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="679" y="567" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="679" dy="0">CourseSearchTool</tspan>
+<tspan x="679" dy="23.400000000000002">Course/lesson filters</tspan>
+<tspan x="679" dy="23.400000000000002">Excerpts + sources</tspan>
+</text>
+<rect x="30" y="720" width="250" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="44" y="752" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="44" dy="0">Existing course files</tspan>
+<tspan x="44" dy="23.400000000000002">docs/ corpus</tspan>
+<tspan x="44" dy="23.400000000000002">Credits preserved</tspan>
+</text>
+<rect x="345" y="720" width="245" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="359" y="752" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="359" dy="0">DocumentProcessor</tspan>
+<tspan x="359" dy="23.400000000000002">Text + metadata</tspan>
+<tspan x="359" dy="23.400000000000002">Overlapping chunks</tspan>
+</text>
+<rect x="665" y="720" width="230" height="105" fill="#edf4f8" stroke="#182c40" stroke-width="2"/>
+<text x="679" y="752" font-size="18" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="679" dy="0">Persistent Chroma</tspan>
+<tspan x="679" dy="23.400000000000002">Catalog + content</tspan>
+<tspan x="679" dy="23.400000000000002">Local embeddings</tspan>
+</text>
+<polyline points="280,220 345,220" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="465,275 465,350" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="345,400 280,400" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="590,400 665,400" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="895,400 940,400" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="780,455 780,535" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="780,640 780,720" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="280,770 345,770" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<polyline points="590,770 665,770" fill="none" stroke="#182c40" stroke-width="2" marker-end="url(#arrowhead)"/>
+<text x="37" y="307" font-size="17" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="37" dy="0">Answer, sources and session ID</tspan>
+<tspan x="37" dy="22.1">return via the API to the browser.</tspan>
+</text>
+<text x="940" y="507" font-size="17" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="940" dy="0">API / BILLING / PRIVACY</tspan>
+<tspan x="940" dy="22.1">Text leaves the local process.</tspan>
+<tspan x="940" dy="22.1">Tool execution stays in Python.</tspan>
+<tspan x="940" dy="22.1">Model downloads are additional</tspan>
+<tspan x="940" dy="22.1">network activity (not drawn).</tspan>
+</text>
+<text x="30" y="607" font-size="17" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="30" dy="0">STARTUP INGESTION</tspan>
+<tspan x="30" dy="22.1">Skip already indexed course titles.</tspan>
+<tspan x="30" dy="22.1">Text parser; no general PDF/DOCX support.</tspan>
+</text>
+<text x="940" y="756" font-size="17" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="940" dy="0">all-MiniLM-L6-v2</tspan>
+<tspan x="940" dy="22.1">backend/chroma_db/</tspan>
+<tspan x="940" dy="22.1">with backend working directory</tspan>
+</text>
+<text x="30" y="885" font-size="17" font-family="Arial, sans-serif" fill="#182c40">
+<tspan x="30" dy="0">Read ARCHITECTURE.md for flows, source links and accessible text.</tspan>
+<tspan x="30" dy="22.1">Original map · Reason AI-assisted documentation · Native editor round-trip NOT RUN</tspan>
+</text>
+</svg>
